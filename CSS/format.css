@@ -1,0 +1,23 @@
+#main-Title{
+	margin-top: 30px;
+	font-size: 50px;
+
+}
+
+#main-background{
+	background-color: #222;
+	color: green;
+}
+
+.container{
+	float: middle;
+}
+.container .breakContainer{
+	float: right;
+	color: white;
+}
+
+.container .sessionContainer{
+	float: left;
+	color: white;
+}

@@ -1,7 +1,6 @@
 #main-Title{
-	margin-top: 30px;
+	margin: 30px 0px 50px 0px;
 	font-size: 50px;
-
 }
 
 #main-background{
@@ -9,15 +8,47 @@
 	color: green;
 }
 
-.container{
-	float: middle;
-}
-.container .breakContainer{
-	float: right;
+.breakContainer, .sessionContainer{
+	text-align: center;
+	font-size: 15px;
 	color: white;
 }
 
-.container .sessionContainer{
-	float: left;
-	color: white;
+#timeLength{
+	font-size: 20px
+}
+
+#timeMinus, #timeAdd{
+	background-color: #222;
+	color: #fff;
+	margin-bottom: 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 2em;
+	outline: none;
+}
+
+#timer{
+	text-align: center;
+	width: 300px;
+	height: 300px;
+	border: 2px solid green;
+	border-radius: 50%;
+	position: relative;
+	z-index: 20;
+	overflow: hidden;
+
+}
+ 
+
+
+
+section .colorFill{
+	content: '';
+	background: white;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
 }

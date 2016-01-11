@@ -1,37 +1,54 @@
-<!doctype html>
-<html>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
+﻿<!doctype html>
+<html >
+<meta charset="utf-8" />
+<meta name="google" value="nontranslate" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<!-- Favorite Icons -->
-<link rel="stylesheet" href="../font-awesome-4.5.0/css/font-awesome.css">
 <!-- Formatting -->
 <link rel="stylesheet" href="../CSS/format.css">
-
+    
 	<head>
 		<title>JZheng213 - Pomodoro Timer</title>
 		<link href="format.css" rel="stylesheet" type="text/css" />
 	</head>
+ 
 <body class="text-center" id="main-background">
   <h1 id="main-Title">Pomodoro Timer</h1>
   <main ng-app="PomodoroTimer" ng-controller="MainCtrl">
-    <div class="container row">
-        <div class="breakContainer col-md-6 col-sm-6 col-xs-6">
-            BREAK SESSION
+      <div class="row">
+        <div class="breakContainer col-lg-offset-4 col-lg-2 col-md-offset-4 col-md-2 col-sm-offset-3 col-sm-3 col-xs-12">
+            <p>BREAK LENGTH</p>
+            <button id="timeMinus"  ng-click="timeChange(-60, 'breakLength')">-</button>
+            <!-- add session length here -->
+            <span id="timeLength">{{breakLength}}</span> 
+            <button id="timeAdd" ng-click="timeChange(60, 'breakLength')">+</button>
+            
         </div>
-        <div class="sessionContainer col-md-6 col-sm-6 col-xs-6">
-            SESSION LENGTH
+        <div class="sessionContainer col-lg-2 col-md-2 col-sm-3 col-xs-12">
+            <p>SESSION LENGTH</p>
+            <button id="timeMinus" ng-click="timeChange(-60, 'sessionLength')">-</button>
+            <!-- add session length here -->
+            <span id="timeLength">{{sessionLength}}</span> 
+            <button id="timeAdd" ng-click="timeChange(60, 'sessionLength')">+</button>
         </div>
     </div>
+    <div align="center">
+    <section ng-click="triggerTimer()">
+      <div id="timer">
+        <p>{{sessionName}}</p>
+        <!-- Timer -->
+        <p>{{sessionTime}}</p>
+        <span ng-style="{'height':fillHeight}" class="colorFill"></span>
+      </div>
+    </section>    
+    </div>
+</main>
 
-  </main>
-
+    <script src="../Script/angular.js"></script>    
+    <script type="text/javascript" src="../Script/main.js"></script>
 </body>
-
-<script src="Script/main.js"></script>
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
 </html>
+

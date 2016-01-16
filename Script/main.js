@@ -41,7 +41,7 @@ app.controller('MainCtrl', function($scope, $interval) {
     	
     	if(!timeOn){
     	updateTimer();
-    	timeOn = $interval(updateTimer,1000);
+    	timeOn = $interval(updateTimer,1);
     	}else{
     		$interval.cancel(timeOn); 
     		timeOn = false;

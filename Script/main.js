@@ -2,14 +2,9 @@ var app = angular.module('PomodoroTimer', []);
 app.controller('MainCtrl', function($scope, $interval) {
     $scope.breakLength = secondsToHms(300);
     $scope.sessionLength = secondsToHms(1500);
-    $scope.fillHeight = '0%';
-    $scope.fillColor = '#111';
-    $scope.sessionName = 'SESSION';
-    $scope.sessionTime = $scope.sessionLength;
-   var totalTime = HmstoSeconds($scope.sessionLength);
-    var seconds = HmstoSeconds($scope.sessionTime);
+   var totalTime = 0;
+    var seconds = 0;
     var timeOn = false;
-
 
 	$scope.timeChange = function(time, sessionType){
     	seconds = HmstoSeconds($scope[sessionType]);
@@ -18,10 +13,18 @@ app.controller('MainCtrl', function($scope, $interval) {
     	if(seconds < 60){
     		seconds = 60;
     		$scope[sessionType] = secondsToHms(seconds);}
+            $scope.newTimer();
+    };
 
-    	if(sessionType === 'sessionLength'){
-    		$scope.sessionTime = $scope[sessionType];
-    	}
+    $scope.newTimer = function(){
+        $scope.sessionTime = $scope.sessionLength;
+        seconds = HmstoSeconds($scope.sessionLength);
+        totalTime = seconds;       
+        $scope.sessionName = 'SESSION';
+        $scope.fillHeight = '0%';
+        $scope.fillColor = '#111';
+        $interval.cancel(timeOn);
+        timeOn = false;
     };
 
     function secondsToHms(d) {
@@ -56,7 +59,7 @@ app.controller('MainCtrl', function($scope, $interval) {
     			$scope.sessionName = 'BREAK';
     			seconds = HmstoSeconds($scope.breakLength);
     			totalTime = seconds;
-    			$scope.fillColor = 'pink';
+    			$scope.fillColor = 'RED';
     	}else{	
     		$scope.sessionName = 'SESSION';
     		seconds = HmstoSeconds($scope.sessionLength);

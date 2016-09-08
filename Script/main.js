@@ -27,14 +27,16 @@ app.controller('MainCtrl', function($scope, $interval) {
         timeOn = false;
     };
 
-    function secondsToHms(d) {
-        d = Number(d);
-        var h = Math.floor(d / 3600);
-        var m = Math.floor(d % 3600 / 60);
-        var s = Math.floor(d % 3600 % 60);
+    //Convert seconds to String format
+    function secondsToHms(sec) {
+        sec = Number(sec);
+        var h = Math.floor(sec / 3600);
+        var m = Math.floor(sec % 3600 / 60);
+        var s = Math.floor(sec % 3600 % 60);
         return (h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s;
     }
 
+    //Convert String format to seconds
     function HmstoSeconds(hms){
     	var a = hms.split(':');
     	return (a[0]) * 60^2 + (a[1]) * 60 + (a[2]);
@@ -44,7 +46,7 @@ app.controller('MainCtrl', function($scope, $interval) {
     	
     	if(!timeOn){
     	updateTimer();
-    	timeOn = $interval(updateTimer,1);
+    	timeOn = $interval(updateTimer,1000);
     	}else{
     		$interval.cancel(timeOn); 
     		timeOn = false;

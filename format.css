@@ -1,0 +1,19 @@
+body{
+	background: #222;
+	color: white;
+}
+
+.heading{
+	font-family: cursive;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.heading h1{
+	font-size: 50px;
+}
+
+.heading h2{
+	margin-top: 0px;
+	font-size: 25px;
+}
